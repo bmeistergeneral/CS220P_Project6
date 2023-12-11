@@ -3,10 +3,32 @@
 public class BinarySearchTree <T extends Comparable<T>> {
     private static class Node {
         private Node left, right;
-        private final int data;
+        private int data;
         public Node(int data) {
             left = null;
             right = null;
+            this.data = data;
+        }
+
+        public Node getLeft() {
+            return left;
+        }
+        public Node getRight() {
+            return right;
+        }
+
+        public int getData() {
+            return data;
+        }
+
+        public void setLeft(Node left) {
+            this.left = left;
+        }
+
+        public void setRight(Node right) {
+            this.right = right;
+        }
+        public void setData(int data) {
             this.data = data;
         }
     }
@@ -40,12 +62,9 @@ public class BinarySearchTree <T extends Comparable<T>> {
         if (n == null) {
             return;
         }
-        System.out.print(root.data + " ");
+        System.out.printf("%s ", n.data);
         preFixPrint(n.left);
         preFixPrint(n.right);
-    }
-    public void printTree() {
-       preFixPrint(root);
     }
     private int countLeafNodes(Node n) {
         if (n == null) {
@@ -82,9 +101,9 @@ public class BinarySearchTree <T extends Comparable<T>> {
     private boolean search(Node n, int value) {
     if (n == null) {
         return false;
-    } else if (n.data == value) {
+    } else if (n.getData() == value) {
         return true;
-    } else if (n.data > value) {
+    } else if (n.getData() > value) {
         return search(n.left, value);
     }
     return search(n.right, value);
@@ -95,28 +114,20 @@ public class BinarySearchTree <T extends Comparable<T>> {
     public static void main(String[] args) {
        BinarySearchTree T = new BinarySearchTree();
         T.insert(3);
-        T.printTree();
         T.preFixPrint(T.root);
         T.insert(1);
-        T.printTree();
         T.preFixPrint(T.root.left);
         T.insert(4);
-        T.printTree();
         T.preFixPrint(T.root.right);
         T.insert(6);
-        T.printTree();
         T.preFixPrint(T.root.right.right);
         T.insert(9);
-        T.printTree();
         T.preFixPrint(T.root.right.right.right);
         T.insert(2);
-        T.printTree();
         T.preFixPrint(T.root.left.right);
         T.insert(5);
-        T.printTree();
         T.preFixPrint(T.root.right.right.left);
         T.insert(7);
-        T.printTree();
         T.preFixPrint(T.root.right.right.right.left);
         System.out.println();
         System.out.println("Leaf Nodes: " + T.countLeafNodes(T.root));
