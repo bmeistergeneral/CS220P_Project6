@@ -124,22 +124,22 @@ public class BinarySearchTree <T extends Comparable<T>> {
     // Driver code
     public static void main(String[] args) {
        BinarySearchTree T = new BinarySearchTree();
-        T.insert(4);
+        T.insert(3);
         T.preFixPrint(T.root);
         T.insert(1);
         T.preFixPrint(T.root.left);
-        T.insert(5);
+        T.insert(4);
         T.preFixPrint(T.root.right);
-        T.insert(7);
+        T.insert(6);
         T.preFixPrint(T.root.right.right);
-        T.insert(8);
+        T.insert(9);
         T.preFixPrint(T.root.right.right.right);
         T.insert(2);
         T.preFixPrint(T.root.left.right);
-        T.insert(6);
+        T.insert(5);
         T.preFixPrint(T.root.right.right.left);
-        T.insert(9);
-        T.preFixPrint(T.root.right.right.right.right);
+        T.insert(7);
+        T.preFixPrint(T.root.right.right.right.left);
         System.out.println();
         System.out.println("Leaf Nodes: " + T.countLeafNodes(T.root));
         System.out.println("Total Nodes: " + T.countNodes(T.root));
